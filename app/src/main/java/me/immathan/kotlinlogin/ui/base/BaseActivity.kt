@@ -59,7 +59,13 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
     }
 
     override fun hideProgress() {
-        mProgressDialog?.hide()
+        
+        mProgressDialog?.let{dialog->
+             if(dialog.isShowing){
+             dialog.hide()
+            }
+        }
+      
     }
 
     override fun showMessage(message: String) {
